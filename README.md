@@ -9,7 +9,7 @@ A modern, responsive To-Do List application built with Angular 20. This app help
 - ⏰ Due dates & reminders (optional)
 - 🔍 Search and filter tasks by status (Active, Halt, Rejected, Completed)
 - 📱 Fully responsive UI (works on desktop & mobile)
-- 💾 Persistent storage using SQL Server + EF Core
+- 💾 Persistent storage using below mentioned backend services
 - 🎨 Theming support with clean SCSS styling using [Kage UI](https://www.npmjs.com/package/kage-ui)
 - ⚡ Optimized for performance with Angular signals and standalone components
 
@@ -22,9 +22,9 @@ A modern, responsive To-Do List application built with Angular 20. This app help
 
 ## 🚀 Future Enhancements
 
-- 🌙 Dark mode support
+- 🌙 Dark mode switching support
 - 👥 User login with authentication
 
 ## ☁️ Use Backend
 
-- [ASP.NET Core, C#](https://github.com/sanjib-kumar-mandal/dotnet-to-do)
+- [ASP.NET Core, C#, SQL Server + EF Core](https://github.com/sanjib-kumar-mandal/dotnet-to-do)
