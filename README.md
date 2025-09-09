@@ -27,4 +27,4 @@ A modern, responsive To-Do List application built with Angular 20. This app help
 
 ## ☁️ Use Backend
 
-- .NET Core
+- [ASP.NET Core, C#](https://github.com/sanjib-kumar-mandal/dotnet-to-do)
