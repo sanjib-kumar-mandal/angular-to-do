@@ -1,0 +1,19 @@
+<section class="page-top">
+    <div class="container">
+        <div class="linkage">
+            <kage-bread-crumbs [iconDepth]="3">
+                <kage-bread-crumb label="Home" href="/"></kage-bread-crumb>
+                <kage-bread-crumb label="My profile" href="/my-profile"></kage-bread-crumb>
+            </kage-bread-crumbs>
+        </div>
+        <div class="actions">
+            <kage-button color="primary" routerLink="/dashboard">Dashboard</kage-button>
+            <kage-button color="danger" (click)="signOut()">Sign out</kage-button>
+        </div>
+    </div>
+</section>
+<section class="profile-details">
+    <div class="container">
+        
+    </div>
+</section>

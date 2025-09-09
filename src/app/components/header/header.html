@@ -1,0 +1,31 @@
+ <header class="header">
+    <div class="container">
+      <div class="left">
+        <kage-icon name="menu" [depth]="3" (click)="openDrawer()"></kage-icon>
+        <h1 class="logo">{{appName}}</h1>
+      </div>
+      <nav class="nav">
+        <a routerLink="/">Home</a>
+        <a routerLink="/about">About</a>
+        @if (isLoggedIn) {
+          <a routerLink="/my-profile">My profile</a>
+        } @else {
+          <a routerLink="/authentication/login">Login</a>
+        }
+      </nav>
+    </div>
+</header>
+<ng-template #drawerTemplate>
+  <div class="linkage">
+    <div class="logo">
+      <img src="assets/logo/logo.png" />
+    </div>
+    <div class="links">
+      <ul>
+        <a routerLink="/">Home</a>
+        <a routerLink="/about">About</a>
+        <a routerLink="/authentication/login">Login</a>
+      </ul>
+    </div>
+  </div>
+</ng-template>

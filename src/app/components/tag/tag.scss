@@ -1,0 +1,41 @@
+:host{
+    display: inline-block;
+    p{
+        font-size: 11px;
+        text-transform: uppercase;
+        width: fit-content;
+        padding: 5px 10px;
+        &.primary{
+            background: rgba(var(--color-primary-rgb), .1);
+            color: var(--color-primary);
+        }
+        &.secondary{
+            background: rgba(var(--color-secondary-rgb), .1);
+            color: var(--color-secondary);
+        }
+        &.warning{
+            background: rgba(var(--color-warning-rgb), .1);
+            color: var(--color-warning);
+        }
+        &.danger{
+            background: rgba(var(--color-danger-rgb), .1);
+            color: var(--color-danger);
+        }
+        &.tertiary{
+            background: rgba(var(--color-tertiary-rgb), .1);
+            color: var(--color-tertiary);
+        }
+        &.medium{
+            background: rgba(var(--color-medium-rgb), .1);
+            color: var(--color-medium);
+        }
+        &.success{
+            background: rgba(var(--color-success-rgb), .1);
+            color: var(--color-success);
+        }
+        &.info{
+            background: rgba(var(--color-info-rgb), .1);
+            color: var(--color-info);
+        }
+    }
+}

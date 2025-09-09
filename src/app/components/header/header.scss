@@ -1,0 +1,86 @@
+:host{
+    display: block;
+    .header {
+        background: color-mix(in srgb, var(--color-background) 90%, var(--color-medium) 10%);
+        padding: 1rem 0;
+        .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            .left{
+                display: flex;
+                align-items: center;
+                justify-content: flex-start;
+                gap: 15px;
+                kage-icon{
+                    cursor: pointer;
+                    display: none;
+                }
+                .logo {
+                    font-size: 1.5rem;
+                    font-weight: bold;
+                    span {
+                        color: var(--color-primary);
+                    }
+                }
+            }
+
+            .nav {
+                a {
+                    margin-left: 1.5rem;
+                    text-decoration: none;
+                    color: var(--color-text);
+                    font-weight: 500;
+                    &:hover {
+                        color: var(--color-primary);
+                    }
+                }
+            }
+        }
+    }
+    @media screen and (max-width: 600px) {
+        .header{
+            .container{
+                .left{
+                    kage-icon{
+                        display: block;
+                    }
+                }
+                .nav{
+                    display: none;
+                }
+            }
+        }
+    }
+}
+.linkage{
+    display: flex;
+    flex-direction: column;
+    padding: 15px;
+    .logo{
+        img{
+            height: 50px;
+        }
+    }
+    .links{
+        margin-top: 20px;
+        display: flex;
+        flex-direction: column;
+        ul{
+            padding: 0;
+            margin: 0;
+            li{
+                list-style: none;
+                margin: 0;
+                a{
+                    text-decoration: none;
+                    color: var(--color-text);
+                    transition: .4s;
+                    &:hover{
+                        color: var(--color-primary);
+                    }
+                }
+            }
+        }
+    }
+}

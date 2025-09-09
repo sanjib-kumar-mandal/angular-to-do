@@ -1,0 +1,14 @@
+section.page-top{
+    padding: 15px 0;
+    .container{
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        .actions{
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+            gap: 10px;
+        }
+    }
+}

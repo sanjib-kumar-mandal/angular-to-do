@@ -1,0 +1,10 @@
+<div class="full-body" [ngClass]="{'loading': isLoading}">
+  @if (isHeaderActive) {
+    <div class="header-control">
+      <app-header></app-header>
+    </div>
+  }
+  <div class="pages-container scroll-bar" #routerArea [style.height]="isHeaderActive ? 'calc(100vh - 64.8px)' : '100vh'">
+    <router-outlet />
+  </div>
+</div>

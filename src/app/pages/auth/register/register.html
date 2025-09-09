@@ -1,0 +1,83 @@
+<section class="full-login-page">
+  <div class="content-area">
+    <div class="left">
+      <div class="card">
+        <div class="logo">
+          <a routerLink="/">
+            <img src="assets/logo/logo.png" alt="Logo">
+          </a>
+        </div>
+        <h1>Create your account</h1>
+        <p class="description">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Officia veritatis earum soluta accusamus laboriosam enim, amet doloremque eveniet velit ex possimus facilis odio exercitationem placeat error eius nesciunt similique numquam.</p>
+        <div class="btns">
+          <p>Or you can register with</p>
+          <div class="accounts">
+            <div #googleBtn></div>
+          </div>
+        </div>
+        <div class="condition">
+          <p>Already have account? <a routerLink="/authentication/login" [replaceUrl]="true">Login</a></p>
+        </div>
+      </div>
+    </div>
+    <div class="right">
+      <div class="card" [formGroup]="formGroup">
+        <h2>Hello, Friend</h2>
+        <p class="description">Please create your account here</p>
+        <div class="inputs">
+            <kage-input formControlName="name" type="text" placeholder="Name">
+                <!-- Icon on start -->
+                <kage-icon name="person" slot="icon-start" [depth]="2"></kage-icon>
+                <!-- required error -->
+                @if (formGroup.get('name')?.touched && formGroup.get('name')?.hasError('required')) {
+                    <p class="error" slot="error">Name is required</p>
+                }
+                @if (formGroup.hasError("Name")) {
+                  <p class="error" slot="error">{{formGroup.getError("Name")}}</p>
+                }
+            </kage-input>
+            <kage-input formControlName="email" type="email" placeholder="Email address">
+                <!-- Icon on start -->
+                <kage-icon name="mail" slot="icon-start" [depth]="2"></kage-icon>
+                <!-- Required error -->
+                @if (formGroup.get('email')?.touched && formGroup.get('email')?.hasError('required')) {
+                    <p class="error" slot="error">Email address is required</p>
+                }
+                @if (formGroup.hasError("Email")) {
+                  <p class="error" slot="error">{{formGroup.getError("Email")}}</p>
+                }
+            </kage-input>
+            <kage-input type="password" formControlName="createPassword" placeholder="Create passwod">
+                <!-- Icon on start -->
+                <kage-icon name="lock-closed" slot="icon-start" [depth]="2"></kage-icon>
+                <!-- Required error -->
+                @if (formGroup.get('createPassword')?.touched && formGroup.get('createPassword')?.hasError('required')) {
+                    <p class="error" slot="error">Please create a password</p>
+                }
+                <!-- Backend error -->
+                @if (formGroup.hasError("CreatePassword")) {
+                  <p class="error" slot="error">{{formGroup.getError("CreatePassword")}}</p>
+                }
+            </kage-input>
+            <kage-input type="password" formControlName="confirmPassword" placeholder="Confirm passwod">
+                <!-- Icon on start -->
+                <kage-icon name="lock-closed" slot="icon-start" [depth]="2"></kage-icon>
+                <!-- Required error -->
+                @if (formGroup.get('confirmPassword')?.touched && formGroup.get('confirmPassword')?.hasError('required')) {
+                    <p class="error" slot="error">Please confirm password</p>
+                }
+                <!-- Backend error -->
+                @if (formGroup.hasError("ConfirmPassword")) {
+                  <p class="error" slot="error">{{formGroup.getError("ConfirmPassword")}}</p>
+                }
+            </kage-input>
+            <kage-checkbox>I have read and agree to the <a routerLink="/terms-and-conditions">terms and conditions</a> and <a routerLink="/privacy-policy">privacy policy</a>.</kage-checkbox>
+        </div>
+        <div class="btn-n-link">
+            <kage-button fill="clear" color="warning" (click)="formGroup.reset()" [disabled]="isLoading">Reset</kage-button>
+            <kage-button color="success" [disabled]="formGroup.invalid || isLoading" [loading]="isLoading" (click)="register()">Continue</kage-button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

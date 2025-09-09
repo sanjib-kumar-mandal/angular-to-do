@@ -1,0 +1,60 @@
+<section class="full-login-page">
+  <div class="content-area">
+    <div class="left">
+      <div class="card">
+        <div class="logo">
+          <a routerLink="/">
+            <img src="assets/logo/logo.png" alt="Logo">
+          </a>
+        </div>
+        <h1>Login to your account</h1>
+        <p class="description">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Officia veritatis earum soluta accusamus laboriosam enim, amet doloremque eveniet velit ex possimus facilis odio exercitationem placeat error eius nesciunt similique numquam.</p>
+        <div class="btns">
+          <p>Or you can login with</p>
+          <div class="accounts">
+            <div #googleBtn></div>
+          </div>
+        </div>
+        <div class="condition">
+          <p>Don't have account? <a routerLink="/authentication/register" [replaceUrl]="true">Register</a></p>
+        </div>
+      </div>
+    </div>
+    <div class="right">
+      <div class="card" [formGroup]="formGroup">
+        <h2>Welcome back</h2>
+        <p class="description">Please login to continue</p>
+        <div class="inputs">
+          <kage-input type="text" placeholder="Email address" formControlName="email">
+              <!-- Icon on start -->
+              <kage-icon name="mail" slot="icon-start" [depth]="2"></kage-icon>
+              <!-- Required error -->
+              @if (formGroup.get('email')?.touched && formGroup.get('email')?.hasError('required')) {
+                <p class="error" slot="error">Email is required.</p>
+              }
+          </kage-input>
+          <kage-input [type]="passwordViewStatus ? 'password' : 'text'" placeholder="Password" formControlName="password">
+              <!-- Icon on start -->
+              <kage-icon name="lock-closed" slot="icon-start" [depth]="2"></kage-icon>
+              <!-- Icon on end -->
+              <kage-icon 
+                [name]="passwordViewStatus ? 'eye' : 'eye-off'" 
+                slot="icon-end" 
+                [depth]="2" 
+                (click)="passwordViewStatus = !passwordViewStatus">
+              </kage-icon>
+              <!-- Required error -->
+              @if (formGroup.get('password')?.touched && formGroup.get('password')?.hasError('required')) {
+                <p class="error" slot="error">Password is required.</p>
+              }
+          </kage-input>
+          <kage-checkbox formControlName="remember">Remember me</kage-checkbox>
+        </div>
+        <div class="btn-n-link">
+          <a routerLink="/authentication/forgot-password">Forgot password?</a>
+          <kage-button color="primary" [disabled]="formGroup.invalid || isLoading" [loading]="isLoading" (click)="login()">Login</kage-button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

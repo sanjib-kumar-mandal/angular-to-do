@@ -1,0 +1,38 @@
+<section class="page-top">
+    <div class="container">
+        <div class="left">
+            <kage-bread-crumbs [iconDepth]="3">
+                <kage-bread-crumb label="Home" href="/"></kage-bread-crumb>
+                <kage-bread-crumb label="Dashboard" href="/dashboard"></kage-bread-crumb>
+            </kage-bread-crumbs>
+        </div>
+        <div class="right">
+            <kage-button color="success" (click)="addWork()" [disabled]="isLoading">New Work</kage-button>
+        </div>
+    </div>
+</section>
+@if (workList?.length) {
+    <section class="all-works">
+        <div class="container">
+            <div class="list">
+                @for (item of workList; track $index) {
+                    <div class="each-item">
+                        <h2>{{item.title}}</h2>
+                        <p class="description">{{item.description}}</p>
+                        <div class="statistics">
+                            <kage-button color="primary" fill="clear" [routerLink]="'/dashboard/'+item.id">View</kage-button>
+                            <kage-button color="danger" fill="clear" (click)="deleteWork(item.id)">Delete</kage-button>
+                        </div>
+                    </div>
+                }
+            </div>
+        </div>
+    </section>
+} @else {
+    @if (!isLoading && !workList?.length) {
+        <section class="no-data">
+            <img src="assets/no-data.svg" alt="no data">
+            <p>No data found</p>
+        </section>
+    }
+}

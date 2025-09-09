@@ -1,0 +1,135 @@
+section.page-top{
+    padding: 15px 0;
+    .container{
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        .actions{
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+            gap: 10px;
+        }
+    }
+}
+
+section.task-tracker{
+    .container{
+        display: flex;
+        gap: 10px;
+        .row{
+            width: calc(100% / 5);
+            background: color-mix(in srgb, var(--color-background) 90%, var(--color-medium) 10%);
+            border-top: 3px solid transparent;
+            height: fit-content;
+            .title{
+                padding: 10px;
+                text-align: center;
+                border-bottom: 1px solid rgba(var(--color-medium-rgb), .2);
+                h2{
+                    font-size: 18px;
+                    font-weight: 400;
+                }
+                p{
+                    color: var(--color-medium);
+                    font-size: 12px;
+                }
+            }
+            .tasks{
+                padding: 5px;
+                display: flex;
+                flex-direction: column;
+                gap: 5px;
+                max-height: calc(100vh - 260px);
+                .each, .cdk-drag-placeholder{
+                    display: flex;
+                    flex-direction: column;
+                    gap: 3px;
+                    background: color-mix(in srgb, var(--color-background) 95%, var(--color-medium) 5%);
+                    padding: 5px;
+                    cursor: pointer;
+                    .name{
+                        font-size: 14px;
+                    }
+                    .date{
+                        font-size: 10px;
+                        color: var(--color-medium);
+                    }
+                }
+                .cdk-drag-placeholder{
+                    opacity: .3;
+                }
+            }
+            .add-new{
+                p{
+                    text-align: center;
+                    padding: 7px 10px;
+                    font-size: 14px;
+                    text-transform: uppercase;
+                    cursor: pointer;
+                }
+            }
+            .no-data{
+                height: 200px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                flex-direction: column;
+                gap: 10px;
+                img{
+                    max-height: 120px;
+                }
+                p{
+                    font-size: 14px;
+                    color: var(--color-medium);
+                }
+            }
+            &.open{
+                border-top-color: var(--color-medium);
+                .add-new{
+                    background: rgba(var(--color-medium-rgb), .2);
+                    color: var(--color-medium);
+                }
+            }
+            &.active{
+                border-top-color: var(--color-primary);
+                .add-new{
+                    background: rgba(var(--color-primary-rgb), .2);
+                    color: var(--color-primary);
+                }
+            }
+            &.halt{
+                border-top-color: var(--color-warning);
+                .add-new{
+                    background: rgba(var(--color-warning-rgb), .2);
+                    color: var(--color-warning);
+                }
+            }
+            &.resolved{
+                border-top-color: var(--color-danger);
+                .add-new{
+                    background: rgba(var(--color-danger-rgb), .2);
+                    color: var(--color-danger);
+                }
+            }
+            &.halted{
+                border-top-color: var(--color-secondary);
+                .add-new{
+                    background: rgba(var(--color-secondary-rgb), .2);
+                    color: var(--color-secondary);
+                }
+            }
+            &.completed{
+                border-top-color: var(--color-success);
+                .add-new{
+                    background: rgba(var(--color-success-rgb), .2);
+                    color: var(--color-success);
+                }
+            }
+        }
+    }
+}
+
+                .cdk-drag-animating{
+                    background: green;
+                }

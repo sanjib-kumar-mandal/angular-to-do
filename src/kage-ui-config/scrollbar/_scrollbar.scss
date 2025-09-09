@@ -1,0 +1,20 @@
+.scroll-bar{
+    overflow: auto;
+    &::-webkit-scrollbar {
+        width: 10px;
+        height: 10px;
+    }
+
+    /* Track */
+    &::-webkit-scrollbar-track {
+        background: color-mix(in srgb, var(--color-background) 90%, var(--color-medium) 10%);
+    }
+
+    /* Handle */
+    &::-webkit-scrollbar-thumb {
+        background: color-mix(in srgb, var(--color-background) 70%, var(--color-medium) 30%);
+        &:hover{
+            background: color-mix(in srgb, var(--color-background) 50%, var(--color-medium) 50%);
+        }
+    }
+}

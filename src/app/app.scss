@@ -1,0 +1,33 @@
+.full-body{
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+    &.loading{
+        position: relative;
+        &::after{
+            content: '';
+            height: 2px;
+            background: var(--color-primary);
+            width: 100px;
+            position: absolute;
+            top: 0;
+            left: 0;
+            animation: loadingAnimate 1.2s infinite;
+            transform: translate(0, -50%);
+        }
+    }
+    @keyframes loadingAnimate {
+        0%{
+            width: 0px;
+            left: 0;
+        }
+        50%{
+            width: 280px;
+            left: calc(50% - 100px);
+        }
+        100%{
+            width: 0px;
+            left: 100%;
+        }
+    }
+}

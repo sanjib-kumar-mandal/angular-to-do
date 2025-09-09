@@ -1,0 +1,28 @@
+<div class="full-modal" [formGroup]="formGroup">
+    <div class="modal-header">
+        <div class="container">
+            <h2>Add new work</h2>
+        </div>
+    </div>
+    <div class="modal-content">
+        <div class="container">
+            <kage-input label="Title" formControlName="Title">
+                <!-- Required -->
+                @if (formGroup.get('Title')?.touched && formGroup.get('Title')?.hasError('required')) {
+                    <p class="error" slot="error">Title is required</p>
+                }
+            </kage-input>
+            <kage-textarea label="Description" formControlName="Description">
+                <!-- Required -->
+                @if (formGroup.get('Description')?.touched && formGroup.get('Description')?.hasError('required')) {
+                    <p class="error" slot="error">Description is required</p>
+                }
+            </kage-textarea>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <div class="container">
+            <kage-button color="primary" [disabled]="formGroup.invalid" [loading]="isLoading" (click)="addNewWork()">Save</kage-button>
+        </div>
+    </div>
+</div>

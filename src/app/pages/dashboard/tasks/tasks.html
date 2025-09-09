@@ -1,0 +1,124 @@
+<section class="page-top">
+    <div class="container">
+        <div class="left">
+            <kage-bread-crumbs [iconDepth]="3">
+                <kage-bread-crumb label="Home" href="/"></kage-bread-crumb>
+                <kage-bread-crumb label="Dashboard" href="/dashboard"></kage-bread-crumb>
+                <kage-bread-crumb [label]="workDetails ? workDetails.title : '--'" [href]="'/dashboard/'+id()"></kage-bread-crumb>
+            </kage-bread-crumbs>
+        </div>
+        <div class="actions"></div>
+    </div>
+</section>
+<section class="task-tracker">
+    <div class="container" cdkDropListGroup>
+        <div class="row open" cdkDropList [cdkDropListData]="reorderGroup.open" (cdkDropListDropped)="drop($event, 'open')">
+            <div class="title">
+                <h2>Open</h2>
+                <p>{{reorderGroup.open.length}} {{reorderGroup.open.length > 1 ? 'Cards' : 'Card'}}</p>
+            </div>
+            @if (reorderGroup.open.length) {
+                <div class="tasks scroll-bar">
+                    @for (item of reorderGroup.open; track $index) {
+                        <div class="each" cdkDrag [cdkDragData]="item">
+                            <p class="name">{{item.name}}</p>
+                            <p class="date">22 May, 2029</p>
+                        </div>
+                    }
+                </div>
+            } @else {
+                <div class="no-data">
+                    <img src="assets/no-data.svg" alt="">
+                    <p>No task is open</p>
+                </div>
+            }
+            <div class="add-new">
+                <p (click)="addNewTask()">Add new</p>
+            </div>
+        </div>
+        <div class="row active" cdkDropList [cdkDropListData]="reorderGroup.active" (cdkDropListDropped)="drop($event, 'active')">
+            <div class="title">
+                <h2>Active</h2>
+                <p>{{reorderGroup.active.length}} {{reorderGroup.active.length > 1 ? 'Cards' : 'Card'}}</p>
+            </div>
+            @if (reorderGroup.active.length) {
+                <div class="tasks scroll-bar">
+                    @for (item of reorderGroup.active; track $index) {
+                        <div class="each" cdkDrag [cdkDragData]="item">
+                            <p class="name">{{item.name}}</p>
+                            <p class="date">22 May, 2029</p>
+                        </div>
+                    }
+                </div>
+            } @else {
+                <div class="no-data">
+                    <img src="assets/no-data.svg" alt="">
+                    <p>No task is active</p>
+                </div>
+            }
+        </div>
+        <div class="row halt" cdkDropList [cdkDropListData]="reorderGroup.halt" (cdkDropListDropped)="drop($event, 'halt')">
+            <div class="title">
+                <h2>Halted</h2>
+                <p>{{reorderGroup.halt.length}} {{reorderGroup.halt.length > 1 ? 'Cards' : 'Card'}}</p>
+            </div>
+            @if (reorderGroup.halt.length) {
+                <div class="tasks scroll-bar">
+                    @for (item of reorderGroup.halt; track $index) {
+                        <div class="each" cdkDrag [cdkDragData]="item">
+                            <p class="name">{{item.name}}</p>
+                            <p class="date">22 May, 2029</p>
+                        </div>
+                    }
+                </div>
+            } @else {
+                <div class="no-data">
+                    <img src="assets/no-data.svg" alt="">
+                    <p>No task is halted</p>
+                </div>
+            }
+        </div>
+        <div class="row resolved" cdkDropList [cdkDropListData]="reorderGroup.rejected" (cdkDropListDropped)="drop($event, 'rejected')">
+            <div class="title">
+                <h2>Rejected</h2>
+                <p>{{reorderGroup.rejected.length}} {{reorderGroup.rejected.length > 1 ? 'Cards' : 'Card'}}</p>
+            </div>
+            @if (reorderGroup.rejected.length) {
+                <div class="tasks scroll-bar">
+                    @for (item of reorderGroup.rejected; track $index) {
+                        <div class="each" cdkDrag [cdkDragData]="item">
+                            <p class="name">{{item.name}}</p>
+                            <p class="date">22 May, 2029</p>
+                        </div>
+                    }
+                </div>
+            } @else {
+                <div class="no-data">
+                    <img src="assets/no-data.svg" alt="">
+                    <p>No task is rejected</p>
+                </div>
+            }
+        </div>
+        <div class="row completed" cdkDropList [cdkDropListData]="reorderGroup.completed" (cdkDropListDropped)="drop($event, 'completed')">
+            <div class="title">
+                <h2>Completed</h2>
+                <p>{{reorderGroup.completed.length}} {{reorderGroup.completed.length > 1 ? 'Cards' : 'Card'}}</p>
+            </div>
+            @if (reorderGroup.completed.length) {
+                <div class="tasks scroll-bar">
+                    @for (item of reorderGroup.completed; track $index) {
+                        <div class="each" cdkDrag [cdkDragData]="item">
+                            <p class="name">{{item.name}}</p>
+                            <p class="date">22 May, 2029</p>
+                        </div>
+                    }
+                </div>
+            } @else {
+                <div class="no-data">
+                    <img src="assets/no-data.svg" alt="">
+                    <p>No task is completed</p>
+                </div>
+            }
+        </div>
+    </div>
+</section>
